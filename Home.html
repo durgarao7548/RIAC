@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Mode</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #808080;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .header {
+            width: 100%;
+            background-color: red;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+            padding: 10px 0;
+            font-weight: bold;
+        }
+
+        .room-info {
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 18px;
+        }
+
+        .unit {
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 250px;
+        }
+
+        .unit .component {
+            margin: 10px 0;
+        }
+
+        .system-stop {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .sensor {
+            background-color: black;
+            color: white;
+            text-align: center;
+            width: 120px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        .sliding-door {
+            background-color: white;
+            border: 1px solid black;
+            text-align: center;
+            padding: 10px;
+            width: 150px;
+            margin: 10px;
+        }
+
+        .temperature-control {
+            background-color: white;
+            border: 1px solid black;
+            text-align: center;
+            width: 300px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .temperature-control p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        .row {
+            margin: 5px 0;
+            padding: 5px;
+            border: 1px solid black;
+            background-color: lightgray;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .fan {
+            width: 80px;
+            height: 80px;
+            transition: transform 1s linear;
+        }
+
+        .fan.stopped {
+            transform: rotate(0deg);
+        }
+
+        .fan.running-clockwise {
+            animation: rotateClockwise 1s linear infinite;
+        }
+
+        .fan.running-anticlockwise {
+            animation: rotateAnticlockwise 1s linear infinite;
+        }
+
+        @keyframes rotateClockwise {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotateAnticlockwise {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">MANUAL MODE</header>
+        <div class="room-info">
+            <p>Anteroom (2°C ± 8°C)</p>
+            <p>ROOM NO: GWH2-13</p>
+            <p>ID.NO: 211420</p>
+        </div>
+        <div class="unit unit-1">
+            <p>UNIT-1</p>
+            <div class="component">
+                <p>Evap 1</p>
+                <img id="evap1" class="fan stopped" src="./StopFan.png" alt="Evaporator Icon">
+            </div>
+            <div class="component">
+                <p>Comp 1</p>
+                <img id="comp1" src="./CompOff.png" alt="Compressor Icon">
+            </div>
+            <button id="unit1Button" class="system-stop">System Stop</button>
+        </div>
+        <div class="unit unit-2">
+            <p>UNIT-2</p>
+            <div class="component">
+                <p>Evap 2</p>
+                <img id="evap2" class="fan stopped" src="./StopFan.png" alt="Evaporator Icon">
+            </div>
+            <div class="component">
+                <p>Comp 2</p>
+                <img id="comp2" src="CompOff.png" alt="Compressor Icon">
+            </div>
+            <button id="unit2Button" class="system-stop">System Stop</button>
+        </div>
+        <div class="sliding-door">Sliding Door</div>
+        <div class="sliding-door">Sliding Door</div>
+        <div class="sensor" id="sensor1">Sensor 1<br>0.0°C</div>
+        <div class="sensor" id="sensor2">Sensor 2<br>0.0°C</div>
+        <div class="sensor" id="sensor3">Sensor 3<br>0.0°C</div>
+        <div class="sensor" id="sensor4">Sensor 4<br>0.0°C</div>
+        <div class="sensor" id="sensor5">Sensor 5<br>0.0°C</div>
+        <div class="sensor" id="sensor6">Sensor 6<br>0.0°C</div>
+        <div class="sensor" id="sensor7">Sensor 7<br>0.0°C</div>
+        <div class="temperature-control">
+            <p>Act Temp</p>
+            <div class="row yellow">0.0°C</div>
+            <p>Act Hr's</p>
+            <div class="row">0 Hrs</div>
+            <p>Act Min's</p>
+            <div class="row">0 Mins</div>
+            <p>Act Sec's</p>
+            <div class="row">0 Secs</div>
+            <p>Set Temp</p>
+            <div class="row">0.0°C</div>
+            <p>Set Hr's</p>
+            <div class="row">0 Hrs</div>
+            <p>Set Min's</p>
+            <div class="row">0 Mins</div>
+        </div>
+    </div>
+    <script>
+        class ManualMode {
+            constructor() {
+                this.evap1 = document.getElementById('evap1');
+                this.evap2 = document.getElementById('evap2');
+                this.comp1 = document.getElementById('comp1');
+                this.comp2 = document.getElementById('comp2');
+
+                this.unit1Button = document.getElementById('unit1Button');
+                this.unit2Button = document.getElementById('unit2Button');
+
+                this.stoppedImage = "E:\\Ran_Plc_vb.net_programing\\VB_Projects\\PLC\\Images\\Screenshot_2024-08-28_125740-removebg-preview.png";
+                this.runningImage = "C:\\Users\\venka\\Downloads\\Screenshot_2024-08-28_125751-removebg-preview.png";
+                this.stoppedImage1 = "C:\\Users\\venka\\Downloads\\b8ylg90f.png";
+                this.runningImage1 = "C:\\Users\\venka\\Downloads\\ic220pgk.png";
+
+                this.init();
+            }
+
+            init() {
+                this.unit1Button.addEventListener('click', () => this.toggleUnit(1));
+                this.unit2Button.addEventListener('click', () => this.toggleUnit(2));
+            }
+
+            toggleUnit(unitNumber) {
+                if (unitNumber === 1) {
+                    this.toggleState(this.evap1, this.comp1, true);
+                } else if (unitNumber === 2) {
+                    this.toggleState(this.evap2, this.comp2, false);
+                }
+            }
+
+            toggleState(evap, comp, clockwise) {
+                if (evap.classList.contains('stopped')) {
+                    evap.classList.remove('stopped');
+                    evap.classList.add(clockwise ? 'running-clockwise' : 'running-anticlockwise');
+                    evap.src = this.runningImage;
+                    comp.src = this.runningImage1;
+                } else {
+                    evap.classList.remove('running-clockwise', 'running-anticlockwise');
+                    evap.classList.add('stopped');
+                    evap.src = this.stoppedImage;
+                    comp.src = this.stoppedImage1;
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            new ManualMode();
+        });
+    </script>
+</body>
+</html>

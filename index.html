@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIAC - Ran Industrial Automation Pvt Ltd!</title>
+ 
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(1.jpg);
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+        }
+
+        .navbar {
+            width: 1200px;
+            height: 75px;
+            margin: auto;
+        }
+
+        .icon {
+            width: 200px;
+            float: left;
+            height: 70px;
+        }
+
+        .logo {
+            color: #ff7200;
+            font-size: 35px;
+            font-family: Arial;
+            padding-left:-200px;
+            float: left;
+            padding-top: 0px;
+            margin-top: 5px;
+        }
+
+        .menu {
+            width: 400px;
+            float: left;
+            height: 70px;
+        }
+
+        ul {
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ul li {
+            list-style: none;
+            margin-left: 62px;
+            margin-top: 27px;
+            font-size: 14px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-family: Arial;
+            font-weight: bold;
+            transition: 0.4s ease-in-out;
+        }
+
+        ul li a:hover {
+            color: #ff7200;
+        }
+
+        .search {
+            width: 330px;
+            float: left;
+            margin-left: 270px;
+        }
+
+        .srch {
+            font-family: 'Times New Roman';
+            width: 200px;
+            height: 40px;
+            background: transparent;
+            border: 1px solid #ff7200;
+            margin-top: 13px;
+            color: #fff;
+            border-right: none;
+            font-size: 16px;
+            float: left;
+            padding: 10px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+        }
+
+        .btn {
+            width: 100px;
+            height: 40px;
+            background: #ff7200;
+            border: 2px solid #ff7200;
+            margin-top: 13px;
+            color: #fff;
+            font-size: 15px;
+            border-bottom-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            color: #000;
+        }
+
+        .btn:focus {
+            outline: none;
+        }
+
+        .srch:focus {
+            outline: none;
+        }
+
+        .content {
+            width: 1200px;
+            height: auto;
+            margin: auto;
+            color: #fff;
+            position: relative;
+        }
+
+        .content .par {
+            padding-left: 20px;
+            padding-bottom: 25px;
+            font-family: Arial;
+            letter-spacing: 1.2px;
+            line-height: 30px;
+        }
+
+        .content h1 {
+            font-family: 'Times New Roman';
+            font-size: 50px;
+            padding-left: 20px;
+            margin-top: 9%;
+            letter-spacing: 2px;
+        }
+
+        .content .cn {
+            width: 160px;
+            height: 40px;
+            background: #ff7200;
+            border: none;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .4s ease;
+        }
+
+        .content .cn a {
+            text-decoration: none;
+            color: #000;
+            transition: .3s ease;
+        }
+
+        .cn:hover {
+            background-color: #fff;
+        }
+
+        .content span {
+            color: #ff7200;
+            font-size: 65px
+        }
+
+        .form {
+            width: 250px;
+            height: 280px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0.8) 50%);
+            position: absolute;
+            top: -40px;
+            left: 890px;
+            transform: translate(0%, -5%);
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .form h2 {
+            width: 220px;
+            font-family: sans-serif;
+            text-align: center;
+            color: #ff7200;
+            font-size: 22px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 2px;
+            padding: 8px;
+        }
+
+        .form input {
+            width: 240px;
+            height: 35px;
+            background: transparent;
+            border-bottom: 1px solid #ff7200;
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            color: #fff;
+            font-size: 15px;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            font-family: sans-serif;
+        }
+
+        .form input:focus {
+            outline: none;
+        }
+
+        ::placeholder {
+            color: #fff;
+            font-family: Arial;
+        }
+
+        .btnn {
+            width: 240px;
+            height: 40px;
+            background: #ff7200;
+            border: none;
+            margin-top: 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #fff;
+            transition: 0.4s ease;
+        }
+
+        .btnn:hover {
+            background: #fff;
+            color: #ff7200;
+        }
+
+        .btnn a {
+            text-decoration: none;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .form .link {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 17px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .form .link a {
+            text-decoration: none;
+            color: #ff7200;
+        }
+
+        .liw {
+            padding-top: 15px;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .icons a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .icons ion-icon {
+            color: #fff;
+            font-size: 30px;
+            padding-left: 14px;
+            padding-top: 5px;
+            transition: 0.3s ease;
+        }
+
+        .icons ion-icon:hover {
+            color: #ff7200;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            color: #000;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        .modal-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        body{
+            background-image: url(./Industrial_Automation.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            position:relative;
+        }
+    </style>
+</head>
+<body src="./Advanced Automation.jpg">
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo"><img src="./RIAC.png", class="logo"></h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="#" id="homeLink" >HOME</a></li>
+                    <li><a href="#" id="aboutLink">ABOUT</a></li>
+                    <li><a href="#" id="servicesLink">SERVICE</a></li>
+                    <li><a href="#">DESIGN</a></li>
+                    <li><a href="#" id="contactLink">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>Ran Industrial<br><span>Automation & Controls </span> <br>Pvt Ltd!</h1>
+     
+
+            <div class="form">
+                <h2>Login Here</h2>
+                <form id="loginForm">
+                    <input type="text" id="username" name="username" placeholder="Enter Username Here" required>
+                    <input type="password" id="password" name="password" placeholder="Enter Password Here" required>
+                    <button type="submit" class="btnn">Login</button>
+                </form>
+                <p id="error" style="color: red; text-align: center; font-size: 14px;"></p>
+                <div class="icons">
+                    <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-google"></ion-icon></a>
+                    <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+    </div>
+       <!-- Modal for Home -->
+    <div id="homeModal" class="modal">
+        <div class="modal-content">
+            <span class="close home-close">&times;</span>
+            <div class="modal-header">Home Section</div>
+            <iframe src="Home.html" width="100%" height="400"></iframe>
+        </div>
+    </div>
+    <!-- Modal for About -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">Ran Industrial Automation & Controls Private Limited</div>
+            <p>Commenced in the year 2014, Ran Industrial Automation & Controls Private Limited is one of the famous names in the market. The head office of our business is located in Hyderabad, Telangana...<br><br>
+                * DEGINING SUPPLY,PROGRAMMING AND COMMISION FOR PLC,HMI,SCADA,SERVO SYSTEMS<br><br>
+                * MCC,PLC,VFD AND RLC PANEL WIRING AND COMMIOSSIONNING <br><br>
+                * RETRO FITTING AND INDRUSTIAL FIELD CABEL WORKS<br><br>
+                * PLC VALIDATIONS,REPORTING SOFTWARE
+            </p>
+        </div>
+    </div>
+<!-- Modal for Contact -->
+<div id="contactModal" class="modal">
+    <div class="modal-content">
+        <span class="close contact-close">&times;</span>
+        <div class="modal-header">Contact Us</div>
+        <p>
+            <b>Ran Industrial Automation & Controls Private Limited</b><br>
+            Plot No. 25, Road No.-5, Aleap Industrial Estate,<br>
+            Kukatpally Near Pragathi Nagar,<br>
+            Near Aleap Industrial Estate, Gajularamaram,<br>
+            Hyderabad-500090, Telangana, India.<br><br>
+            <b>Managing Director:</b> G. Ranjith Kumar<br>
+            <b>Mobile:</b> <em>View Mobile Number</em><br>
+            <b>Response Rate:</b> 50%<br><br>
+            <b>Email:</b> <a href="mailto:ranindustrial@gmail.com">ranindustrial@gmail.com</a>
+        </p>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.074845625687!2d78.3845983!3d17.5089447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91cdd1f125ff%3A0x93d9e0b8de30829!2sAleap%20Industrial%20Estate!5e0!3m2!1sen!2sin!4v1631037647756!5m2!1sen!2sin" 
+            width="100%" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+        </iframe>
+    </div>
+</div>
+
+
+    <!-- Modal for Services -->
+<div id="servicesModal" class="modal">
+    <div class="modal-content">
+        <span class="close services-close">&times;</span>
+        <div class="modal-header">Our Services</div>
+        <div class="service-images" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+            <!-- Replace with actual paths to your service images -->
+            <img src="./mitsubishi-logo-1.png" alt="Mitsubishi" style="width: 150px; height: auto; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+            <img src="./siemens-logo-1.png" alt="Siemens" style="width: 150px; height: auto; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+            <img src="./Schneider.jpg" alt="Schneider Electric" style="width: 150px; height: auto; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+            <img src="./abb-1-logo-png-transparent.png" alt="ABB" style="width: 150px; height: auto; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+            <img src="./Delta-Logo.png" alt="Delta" style="width: 150px; height: auto; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+            <img src="./OIP.jpg" alt="Omron" style="width: 150px; height: auto; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+            <img src="./Allen-Bradley_Logo_blue-1536x341.png" alt="Allen-Bradley" style="width: 150px; height: auto; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+            <img src="./wonderware-logo-png-transparent.png" alt="Omron" style="width: 150px; height: auto; border: 1px solid #ddd; border-radius: 8px; padding: 10px; background: #fff;">
+        </div>
+    </div>
+</div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById("aboutModal");
+        const aboutLink = document.getElementById("aboutLink");
+        const closeModal = document.querySelector(".close");
+
+        aboutLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            modal.style.display = "block";
+        });
+
+        closeModal.addEventListener("click", function() {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+          // Modal functionality for Home
+          const homeModal = document.getElementById("homeModal");
+        const homeLink = document.getElementById("homeLink");
+        const homeCloseModal = document.querySelector(".home-close");
+
+        homeLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            homeModal.style.display = "block";
+        });
+
+        homeCloseModal.addEventListener("click", function() {
+            homeModal.style.display = "none";
+        });
+
+        window.addEventListener("click", function(event) {
+            if (event.target === homeModal) {
+                homeModal.style.display = "none";
+            }
+        });
+// Modal functionality for "Contact Us"
+const contactModal = document.getElementById("contactModal");
+const contactLink = document.getElementById("contactLink");
+const contactCloseModal = document.querySelector(".contact-close");
+
+contactLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    contactModal.style.display = "block";
+});
+
+contactCloseModal.addEventListener("click", function () {
+    contactModal.style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+    if (event.target === contactModal) {
+        contactModal.style.display = "none";
+    }
+});
+// Modal functionality for "Services"
+const servicesModal = document.getElementById("servicesModal");
+const servicesLink = document.getElementById("servicesLink");
+const servicesCloseModal = document.querySelector(".services-close");
+
+servicesLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    servicesModal.style.display = "block";
+});
+
+servicesCloseModal.addEventListener("click", function () {
+    servicesModal.style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+    if (event.target === servicesModal) {
+        servicesModal.style.display = "none";
+    }
+});
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorElement = document.getElementById('error');
+
+            // Clear previous error messages
+            errorElement.textContent = '';
+
+            try {
+                const response = await fetch('http://localhost:5000/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password }),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    if (result.success) {
+                        // Save the username to localStorage before redirecting
+                        localStorage.setItem("username", username);
+                        window.location.href = 'Sucess.html'; // Redirect to Sucess.html
+                    } else {
+                        errorElement.textContent = result.message || 'Invalid credentials. Please try again.';
+                    }
+                } else {
+                    errorElement.textContent = 'An error occurred. Please try again later.';
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                errorElement.textContent = 'Network error: Could not reach the server. Please check your internet connection and try again later.';
+            }
+        });
+
+    </script>
+    
+    
+     <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule="" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
